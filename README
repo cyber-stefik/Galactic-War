@@ -1,0 +1,74 @@
+# Copyright 2021 Stefanita Ionita
+
+*******************************************************************************
+Pentru sursa galactic_war.c:
+
+- am creat un for pentru a citi M comenzi;
+
+- am folosit strcmp ca sa aflu ce comanda a fost introdusa si am apelat
+functia corespunzatoare;
+
+- am eliberat memoria planetelor si a galaxiei.
+
+*******************************************************************************
+Pentru sursa galactic_war_functions.c:
+
+- get_nth_node verifica daca n este mai mare decat size-ul galaxiei si
+folosesc operandul % pentru eficienta. Lista este parcursa pana la pozitia n si 
+este returnat un pointer catre nodul respectiv;
+
+- create aloca memorie pentru o lista si initializeaza parametrii acesteia;
+
+- print_int_list afiseaza nodurile unei liste, pornind de la head;
+
+- add_nth_node introduce un nod pe pozitia n, verifica fiecare caz
+posibil, obtinand astfel complexitate constanta in unele cazuri. Functia a fost
+creata pentru a fi folosita atat pentru planete, cat si pentru scuturi;
+
+- remove_nth_node returneaza un pointer la nodul care trebuie sters, la fel ca
+la add_nth_node, cu complexitate constanta in unele cazuri. Functia a fost 
+creata pentru a fi folosita atat pentru planete, cat si pentru scuturi;
+
+- add_command aloca memorie pentru nume, il copiaza, initializeaza kills pentru
+planeta, adauga valoarea 1 pentru scuturi si la final planeta este adaugata in
+galaxie;
+
+- blh_command elibereaza memoria planetei, astfel fiind stearsa din galaxie;
+
+- upg_command afla planeta al carui scut trebuie upgradat, afla scutul care
+trebuie upgradat si il creste;
+
+- exp_command afla planeta a carei liste de scuturi trebuie modificata si se
+adauga la finalul acesteia scutul cu valoarea value;
+
+- rmv_command afla planeta din care trebuie sters scutul, sterge scutul de pe
+pozitia s_index si ii elibereaza memoria;
+
+- col_command afla planetele care se ciocnesc, punctele de coliziune, scade
+valoarea ambelor scuturi daca este posibil dupa ce se ciocnesc planetele,
+altfel elibereaza memoria corespunzator, planeta / planetele fiind sterse din
+galaxie (implozie);
+
+- rot_command afla planeta, modifica capul listei de scuturi in functie de sens,
+actiunea realizandu-se in mod eficient;
+
+- shw_command afiseaza informatii despre planeta ceruta;
+
+- dll_free elibereaza nodurile unei liste primite ca parametru;
+
+- free_command parcurge planetele din galaxie, elibereaza memoria alocata
+fiecarei liste de scuturi si nume;
+
+- free_planet elibereaza lista de scuturi, numele si datele planetei, aceasta
+functie fiind utila in col_command, cand planetele fac implozie.
+
+*******************************************************************************
+Pentru sursa galactic_war.h:
+
+- node_t contine data si pointer la nodul precent si urmator;
+
+- doubly_linked_list_t contine pointer la primul element din lista,
+dimensiunea datelor si dimensiunea listei;
+
+- planet_t contine numele, numarul de planete distruse si un pointer la o lista
+de scuturi;
